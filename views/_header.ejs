@@ -1,0 +1,20 @@
+<link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet'>
+<header>
+    <a id="logos" href="/">
+        <img id="logo" src="/imgs/lightspeed.png" alt="logo">
+    </a>
+
+    <div id="nav_bar">
+        <a href="/achievements">1</a>
+        <a href="/sponsors">2</a>
+        <a href="/team">3</a>
+        <a href="/gallery">4</a>
+        <% if(locals.user) { %> 
+            <a href="/login"><%= user.user %></a>
+        <% } else { %>
+            <a href="/login">LOG IN</a>
+        <% } %>
+
+    </div>
+
+</header>
