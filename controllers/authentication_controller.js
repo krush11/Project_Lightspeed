@@ -3,9 +3,9 @@ const passport = require('passport');
 
 module.exports.login = function (req, res) {
     if (req.isAuthenticated()) {
-        res.redirect('/profile');
+        return res.redirect('/profile');
     }
-    res.render('login');
+    return res.render('login');
 };
 
 module.exports.create_user =async function (req, res) {

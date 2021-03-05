@@ -4,11 +4,11 @@ const Country = require('../models/country');
 
 // authentication using passport
 passport.use(new LocalStrategy({
-    usernameField: 'username',
+    usernameField: 'user',
     passwordField: 'password'
 },
     async function (username, password, done) {
-        await Country.findOne({ user: username }, function (err, user) {
+        await Country.findOne({ username: username }, function (err, user) {
             if (err) {
                 console.log(`Error in configuring passport-local \n ${err}`);
                 return done(err);

@@ -5,12 +5,28 @@
     <link rel="icon" href="/imgs/logo.png">
     <link rel="stylesheet" href="/css/_header.scss" type="text/css">
     <link rel="stylesheet" href="/css/_footer.scss" type="text/css">
-    <link rel="stylesheet" href="/css/home.scss" type="text/css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/profile.scss" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
+
 <body>
     <%- include('_header'); %>
-    <main></main>
-    <%- include('_footer'); %>
+        <main>
+            <form id="add_user" action="/login/add_user" method="POST">
+                <h1>Add users</h1>
+
+                <fieldset>
+                    <input type="text" id="name" name="name" placeholder="Name">
+                    <input type="text" id="user" name="user" placeholder="Username">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                    <input type="text" id="dept" name="dept" placeholder="Department">
+                    <input type="number" id="year" name="year" placeholder="Year">
+                </fieldset>
+                <button type="submit">Sign Up</button>
+            </form>
+        </main>
+        <%- include('_footer'); %>
 </body>
+
 </html>
