@@ -5,14 +5,14 @@
     </a>
 
     <div id="nav_bar">
-        <a href="/achievements">1</a>
-        <a href="/sponsors">2</a>
-        <a href="/team">3</a>
-        <a href="/gallery">4</a>
+        <a href="/1">1</a>
+        <a href="/2">2</a>
+        <a href="/3">3</a>
+        <a href="/4">4</a>
         <% if(locals.user) { %> 
-            <a href="/login"><%= user.user %></a>
+            <a href="/login"><%= user.username %></a>
         <% } else { %>
-            <a href="/login">LOG IN</a>
+            <a href="/login">SIGN IN/SIGN UP</a>
         <% } %>
 
     </div>
