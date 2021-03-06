@@ -1,4 +1,4 @@
-const Country = require('../models/country');
+const Company = require('../models/company');
 const passport = require('passport');
 
 module.exports.login = function (req, res) {
@@ -6,18 +6,18 @@ module.exports.login = function (req, res) {
         return res.redirect('/profile');
     }
     return res.render('login');
-};
+}
 
-module.exports.create_user =async function (req, res) {
+module.exports.create_user = async function (req, res) {
     // console.log(req.body);
     // console.log(req.user);
-    await Country.findOne({ user: req.body.user }, function (err, user) {
+    await Company.findOne({ user: req.body.user }, function (err, user) {
         if (user) {
             return res.redirect('/login');
         }
         else {
             if (req.body.password == req.body.confirm_password) {
-                Country.create({
+                Company.create({
                     "country": req.body.country,
                     "username": req.body.user,
                     "password": req.body.password
@@ -26,4 +26,4 @@ module.exports.create_user =async function (req, res) {
         }
     });
     return res.redirect('/profile');
-};
+}
