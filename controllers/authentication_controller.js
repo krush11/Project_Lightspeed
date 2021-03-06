@@ -23,6 +23,9 @@ module.exports.create_user = async function (req, res) {
                     "password": req.body.password
                 });
             }
+            else {
+                console.log('Passwords didnt match');
+            }
         }
     });
     req.session.save(() => {
