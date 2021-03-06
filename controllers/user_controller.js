@@ -15,14 +15,13 @@ module.exports.add_details = async function (req, res) {
             name: req.body.name,
             availibility: req.body.vaccines,
             price: req.body.price,
+            extra: req.body.vaccines-req.body.price,
             needed: req.body.vaccines_needed
         };
-        console.log(vaccine, req.user.username, req.vaccine);
-        MyModel.findOneAndUpdate(query, req.newData, { upsert: true }, function (err, doc) {
-            if (err) return res.send(500, { error: err });
-            return res.send('Succesfully saved.');
+        Company.findOneAndUpdate({username: req.user.username}, {vaccine: vaccine}, { upsert: true }, function (err, doc) {
+            if (err) return res.redirect('/profile');
+            return res.redirect('/');
         });
-        console.log(vaccine, req.user.username, req.vaccine);
     }
     else {
         return res.redirect('back');

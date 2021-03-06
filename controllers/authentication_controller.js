@@ -25,5 +25,23 @@ module.exports.create_user = async function (req, res) {
             }
         }
     });
+    req.session.save(() => {
+        return res.redirect('/profile');
+    })
+}
+
+module.exports.update_password = function (req, res) {
+    console.log(req.user);
+    Company.findOne({ username: req.user.username }, function (err, user) {
+        if(user.password == req.body.current_password && req.body.new_password == req.body.confirm_password){
+            Company.findOneAndUpdate({username: req.user.username}, {password: req.body.new_password}, { upsert: true }, function (err, doc) {
+                if (err) return res.send(500, { error: err });
+                return res.redirect('/profile',{
+                    status: "Password changed"
+                }
+                );
+            });
+        }
+    });
     return res.redirect('/profile');
 }
