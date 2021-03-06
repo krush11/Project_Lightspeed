@@ -18,14 +18,14 @@
                 <h1>Add/Update details</h1>
                 <fieldset>
                     <input type="text" id="name" name="name" placeholder="Vaccine Name">
-                    <input type="text" id="vaccines" name="vaccines" placeholder="Vaccines Available">
-                    <input type="text" id="needed" name="vaccines_needed" placeholder="Vaccines Needed">
+                    <input type="number" id="vaccines" name="vaccines" placeholder="Vaccines Available">
+                    <input type="number" id="needed" name="vaccines_needed" placeholder="Vaccines Needed">
                     <input type="number" id="price" name="price" placeholder="Price">
                     <input type="password" id="password" name="password" placeholder="Password">
                 </fieldset>
                 <button type="submit">Add Details</button>
             </form>
-            <form id="update_password" action="/login/add_user" method="POST">
+            <form id="update_password" action="/login/update_password" method="POST">
                 <h1>Change Password</h1>
                 <fieldset>
                     <input type="password" id="current_password" name="current_password" placeholder="Current Password">

@@ -6,9 +6,10 @@
 
     <div id="nav_bar">
         <a href="/">Home</a>
-        <a href="/2">2</a>
+        <a href="/vaccine">Get vaccines</a>
         <% if(locals.user) { %> 
             <a href="/login"><%= user.username %></a>
+            <a href="/logout">Log Out</a>
         <% } else { %>
             <a href="/login">SIGN IN/SIGN UP</a>
         <% } %>
