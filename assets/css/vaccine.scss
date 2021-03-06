@@ -109,9 +109,9 @@ $color-form-highlight: #eeeeee;
   background: linear-gradient(109deg, #ffffff, #a3cdd4, #a1e8f3, #54e8ff, #00ddff, #00a7c1);
   background-size: 1200% 1200%;
 
-  -webkit-animation: fade_hover 16s ease infinite;
-  -moz-animation: fade_hover 16s ease infinite;
-  animation: fade_hover 16s ease infinite;
+  -webkit-animation: fade_hover 10s ease infinite;
+  -moz-animation: fade_hover 10s ease infinite;
+  animation: fade_hover 10s ease infinite;
 }
 
 @-webkit-keyframes fade_hover {
