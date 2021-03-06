@@ -21,8 +21,7 @@
           <div class="table-header">
             <div class="header__item"><a id="name" class="filter__link" href="#">Country</a></div>
             <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Vaccine Name</a></div>
-            <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Vaccines Available</a></div>
-            <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Vaccines Needed</a></div>
+            <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Vaccine Type</a></div>
             <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Excess Vaccines</a></div>
             <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Vaccine Price</a></div>
           </div>
@@ -37,10 +36,7 @@
                     <%= user.vaccine.name %>
                   </div>
                   <div class="table-data">
-                    <%= user.vaccine.availibility%>
-                  </div>
-                  <div class="table-data">
-                    <%= user.vaccine.needed %>
+                    <%= user.vaccine.vaccine_type%>
                   </div>
                   <div class="table-data"><%= user.vaccine.extra %></div>
                   <div class="table-data"><%= user.vaccine.price %></div>

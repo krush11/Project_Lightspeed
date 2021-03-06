@@ -13,6 +13,7 @@ module.exports.add_details = async function (req, res) {
     if (req.body.password == req.user.password) {
         let vaccine = {
             name: req.body.name,
+            vaccine_type: req.body.vaccine_type,
             availibility: req.body.availibility,
             price: req.body.price,
             extra: req.body.availibility-req.body.needed,
