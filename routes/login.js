@@ -15,4 +15,5 @@ router.post('/create_session',
         })
     });
 
+router.post('/update_password', authenticationController.update_password)
 module.exports = router;

@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const Country = require('../models/country');
+const Company = require('../models/company');
 
 // authentication using passport
 passport.use(new LocalStrategy({
@@ -8,7 +8,7 @@ passport.use(new LocalStrategy({
     passwordField: 'password'
 },
     async function (username, password, done) {
-        await Country.findOne({ username: username }, function (err, user) {
+        await Company.findOne({ username: username }, function (err, user) {
             if (err) {
                 console.log(`Error in configuring passport-local \n ${err}`);
                 return done(err);
@@ -29,7 +29,7 @@ passport.serializeUser(function (user, done) {
 
 // deserializing the user from the key in the cookies
 passport.deserializeUser(function (id, done) {
-    Country.findById(id, function (err, user) {
+    Company.findById(id, function (err, user) {
         if (err) {
             console.log('Error in finding user --> Passport');
             return done(err);
@@ -39,11 +39,11 @@ passport.deserializeUser(function (id, done) {
 });
 
 // check if the user is authenticated
-passport.checkAuthentication = async function (req, res, next) {
+passport.checkAuthentication = function (req, res, next) {
     let auth_status = req.isAuthenticated() ? "sucess" : "failure";
     console.log(`Authentication ${auth_status}`);
     // if the user is signed in, then pass on the request to the next function(controller's action)
-    if (await req.isAuthenticated()) {
+    if (req.isAuthenticated()) {
         return next();
     }
 
