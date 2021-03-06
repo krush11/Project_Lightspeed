@@ -27,6 +27,9 @@ $color-form-highlight: #eeeeee;
   box-sizing: border-box;
 }
 
+.table-row:nth-child(even) {background-color: #f4f4f4;}
+.table-row:nth-child(odd) {background-color: #e8f8e5;}
+
 .container {
   width: 100vw;
   display: flex;

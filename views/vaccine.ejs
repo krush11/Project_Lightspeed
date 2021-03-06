@@ -19,11 +19,11 @@
 
         <div class="table">
           <div class="table-header">
-            <div class="header__item"><a id="name" class="filter__link" href="#">Country</a></div>
-            <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Vaccine Name</a></div>
-            <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Vaccine Type</a></div>
-            <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Excess Vaccines</a></div>
-            <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Vaccine Price</a></div>
+            <div class="header__item"><a id="country" class="filter__link" href="#">Country</a></div>
+            <div class="header__item"><a id="name" class="filter__link filter__link--number" href="#">Vaccine Name</a></div>
+            <div class="header__item"><a id="type" class="filter__link filter__link--number" href="#">Vaccine Type</a></div>
+            <div class="header__item"><a id="excess" class="filter__link filter__link--number" href="#">Excess Vaccines</a></div>
+            <div class="header__item"><a id="price" class="filter__link filter__link--number" href="#">Vaccine Price</a></div>
           </div>
           <div class="table-content">
             <% users.forEach(function(user){ %>
@@ -53,11 +53,9 @@
 
     <script>
       var properties = [
-        'name',
-        'wins',
-        'draws',
-        'losses',
-        'total',
+        'country',
+        'excess',
+        'price',
       ];
 
       $.each(properties, function (i, val) {
