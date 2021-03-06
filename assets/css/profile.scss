@@ -1,10 +1,7 @@
 body {
     margin: 0;
     overflow-x: hidden;
-}
-
-main {
-    padding-top: 8%;
+    background-color: lightcyan;
 }
 
 main {
@@ -22,8 +19,9 @@ main {
 form {
     max-width: 300px;
     padding: 10px;
-    background: #f4f7f8;
+    background: rgb(255, 255, 255);
     border-radius: 8px;
+    height: fit-content;
 }
 
 h1 {
@@ -44,6 +42,7 @@ input[type="url"],
 textarea,
 select {
     background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
     border: none;
     font-size: 16px;
     height: auto;
@@ -51,8 +50,8 @@ select {
     outline: 0;
     padding: 15px;
     width: 100%;
-    background-color: #e8eeef;
-    color: #8a97a0;
+    background-color: rgb(245, 243, 243);
+    color: #9c9d9e;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
     margin-bottom: 30px;
 }

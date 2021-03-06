@@ -2,7 +2,7 @@
 
 <head>
     <title>Project Lightspeed</title>
-    <link rel="icon" href="/imgs/logo.png">
+    <link rel="icon" href="/imgs/logo.jpg">
     <link rel="stylesheet" href="/css/_header.scss" type="text/css">
     <link rel="stylesheet" href="/css/_footer.scss" type="text/css">
     <link rel="stylesheet" href="/css/profile.scss" type="text/css">
@@ -13,20 +13,28 @@
 <body>
     <%- include('_header'); %>
         <main>
-            <form id="add_user" action="/login/add_user" method="POST">
-                <h1>Add users</h1>
 
+            <form id="update_data" action="/profile/add_details" method="POST">
+                <h1>Add/Update details</h1>
                 <fieldset>
-                    <input type="text" id="name" name="name" placeholder="Name">
-                    <input type="text" id="user" name="user" placeholder="Username">
+                    <input type="text" id="name" name="name" placeholder="Vaccine Name">
+                    <input type="text" id="vaccines" name="vaccines" placeholder="Vaccines Available">
+                    <input type="text" id="needed" name="vaccines_needed" placeholder="Vaccines Needed">
+                    <input type="number" id="price" name="price" placeholder="Price">
                     <input type="password" id="password" name="password" placeholder="Password">
-                    <input type="text" id="dept" name="dept" placeholder="Department">
-                    <input type="number" id="year" name="year" placeholder="Year">
                 </fieldset>
-                <button type="submit">Sign Up</button>
+                <button type="submit">Add Details</button>
+            </form>
+            <form id="update_password" action="/login/add_user" method="POST">
+                <h1>Change Password</h1>
+                <fieldset>
+                    <input type="password" id="current_password" name="current_password" placeholder="Current Password">
+                    <input type="password" id="new_password" name="new_password" placeholder="New Password">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm New Password">
+                </fieldset>
+                <button type="submit">Change Password</button>
             </form>
         </main>
-        <%- include('_footer'); %>
-</body>
+    </body>
 
 </html>
