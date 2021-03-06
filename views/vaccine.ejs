@@ -1,0 +1,132 @@
+<html>
+
+<head>
+  <title>Project Lightspeed</title>
+  <link rel="icon" href="/imgs/logo.jpg">
+  <link rel="stylesheet" href="/css/_header.scss" type="text/css">
+  <link rel="stylesheet" href="/css/_footer.scss" type="text/css">
+  <link rel="stylesheet" href="/css/vaccine.scss" type="text/css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <%- include('_header'); %>
+    <main>
+      <div class="container">
+
+        <div class="table">
+          <div class="table-header">
+            <div class="header__item"><a id="name" class="filter__link" href="#">Country</a></div>
+            <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Vaccine Name</a>
+            </div>
+            <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Vaccines
+                Available</a></div>
+            <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Vaccines
+                Needed</a></div>
+            <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Excess
+                Vaccines</a></div>
+          </div>
+          <div class="table-content">
+            <% users.forEach(function(user){ %>
+              <% if(user.vaccine.extra > 0){ %>
+                <a class="table-row vaccine_hover" href="">
+                  <div class="table-data">
+                    <%= user.country%>
+                  </div>
+                  <div class="table-data">
+                    <%= user.vaccine.name %>
+                  </div>
+                  <div class="table-data">
+                    <%= user.vaccine.availibility%>
+                  </div>
+                  <div class="table-data">
+                    <%= user.vaccine.extra %>
+                  </div>
+                  <div class="table-data"><%= user.vaccine.price %></div>
+                </a>
+                <%}})%>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+    </main>
+
+
+    <script>
+      var properties = [
+        'name',
+        'wins',
+        'draws',
+        'losses',
+        'total',
+      ];
+
+      $.each(properties, function (i, val) {
+
+        var orderClass = '';
+
+        $("#" + val).click(function (e) {
+          e.preventDefault();
+          $('.filter__link.filter__link--active').not(this).removeClass('filter__link--active');
+          $(this).toggleClass('filter__link--active');
+          $('.filter__link').removeClass('asc desc');
+
+          if (orderClass == 'desc' || orderClass == '') {
+            $(this).addClass('asc');
+            orderClass = 'asc';
+          } else {
+            $(this).addClass('desc');
+            orderClass = 'desc';
+          }
+
+          var parent = $(this).closest('.header__item');
+          var index = $(".header__item").index(parent);
+          var $table = $('.table-content');
+          var rows = $table.find('.table-row').get();
+          var isSelected = $(this).hasClass('filter__link--active');
+          var isNumber = $(this).hasClass('filter__link--number');
+
+          rows.sort(function (a, b) {
+
+            var x = $(a).find('.table-data').eq(index).text();
+            var y = $(b).find('.table-data').eq(index).text();
+
+            if (isNumber == true) {
+
+              if (isSelected) {
+                return x - y;
+              } else {
+                return y - x;
+              }
+
+            } else {
+
+              if (isSelected) {
+                if (x < y) return -1;
+                if (x > y) return 1;
+                return 0;
+              } else {
+                if (x > y) return -1;
+                if (x < y) return 1;
+                return 0;
+              }
+            }
+          });
+
+          $.each(rows, function (index, row) {
+            $table.append(row);
+          });
+
+          return false;
+        });
+
+      });
+    </script>
+</body>
+
+</html>
