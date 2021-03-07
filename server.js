@@ -1,4 +1,4 @@
-const express = require('express'); 
+const express = require('express');
 const port = 8000;
 const app = express();
 const passport = require('passport');
@@ -10,7 +10,7 @@ const MongoStore = require('connect-mongo').default;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static('./assets'));    
+app.use(express.static('./assets'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
