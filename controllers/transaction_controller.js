@@ -41,3 +41,56 @@ module.exports.create_tracsaction = function (req, res) {
     })
     console.log(req.body);
 };
+
+module.exports.declined = async function (req, res) {
+    const transac_id = req.url.slice(9);
+    await Transaction.findOneAndUpdate({ _id: transac_id }, { transaction_status: 'declined' }, { upsert: true }, function (err, doc) {
+        if (err) return res.send(500, { error: err });
+        // return res.redirect('/profile');
+    });
+    return res.redirect('/vaccine');
+};
+
+module.exports.accepted = async function (req, res) {
+    const transac_id = req.url.slice(8);
+    await Transaction.findOneAndUpdate({ _id: transac_id }, { transaction_status: 'accepted' }, { upsert: true }, function (err, doc) {
+        if (err) return res.send(500, { error: err });
+    });
+    await Transaction.findOne({ _id: transac_id }, function (err, transac) {
+        var req_from = transac.req_from;
+        var req_to = transac.req_to;
+        Company.findOne({ username: req_from }, function (err, user) {
+            var available = user.vaccine.availibility + transac.amt_req;
+            var extra_vac = user.vaccine.extra + transac.amt_req;
+            console.log(extra_vac, user.vaccine.extra);
+            console.log(user.vaccine.availibility);
+            Company.findOneAndUpdate({ username: req_from }, {
+                'vaccine.name': user.vaccine.name,
+                'vaccine.price': user.vaccine.price,
+                'vaccine.needed': user.vaccine.needed,
+                'vaccine.vaccine_type': user.vaccine.vaccine_type,
+                'vaccine.availibility': available,
+                'vaccine.extra': extra_vac
+            }, { upsert: true }, function (err, doc) {
+                if (err) return res.send(500, { error: err });
+                console.log(user.vaccine.availibility);
+            });
+        });
+        Company.findOne({ username: req_to }, function (err, user) {
+            var available = user.vaccine.availibility - transac.amt_req;
+            var extra_vac = user.vaccine.extra - transac.amt_req;
+            Company.findOneAndUpdate({ username: req_to }, {
+                'vaccine.name': user.vaccine.name,
+                'vaccine.price': user.vaccine.price,
+                'vaccine.needed': user.vaccine.needed,
+                'vaccine.vaccine_type': user.vaccine.vaccine_type,
+                'vaccine.availibility': available,
+                'vaccine.extra': extra_vac
+            }, { upsert: true }, function (err, doc) {
+                if (err) return res.send(500, { error: err });
+            });
+        });
+    });
+
+    return res.redirect('/vaccine');
+};

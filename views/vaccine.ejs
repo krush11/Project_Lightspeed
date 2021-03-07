@@ -76,7 +76,7 @@
             </div>
             <div class="table-content">
               <% allTransactions.forEach(function(transacs){ %>
-                <% if(transacs.req_from==user.username || transacs.req_to==user.username) {%>
+                <% if((transacs.req_from==user.username || transacs.req_to==user.username) && (transacs.transaction_status == 'Awaiting confirmation')){%>
                   <div class="table-row vaccine_hover">
                     <div class="table-data">
                       <%= transacs.vaccine%>
@@ -96,8 +96,8 @@
                     <div class="table-data">
                       <% if(user.username==transacs.req_from) {%>
                         <div>
-                          <a style="margin-right: 1vw;" href="/vaccine/">&#9989;</a>
-                          <a href="">&#10060;</a>
+                          <a style="margin-right: 1vw;" href="/vaccine/accept/<%= transacs._id%>">&#9989;</a>
+                          <a href="/vaccine/decline/<%= transacs._id%>">&#10060;</a>
                         </div>
                         <%} else if(user.username==transacs.req_to) {%>
                           <%= transacs.transaction_status %>
