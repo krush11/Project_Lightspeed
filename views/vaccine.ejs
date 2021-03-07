@@ -28,7 +28,7 @@
           <div class="table-content">
             <% users.forEach(function(user){ %>
               <% if(user.vaccine.extra > 0){ %>
-                <a class="table-row vaccine_hover" href="">
+                <a class="table-row vaccine_hover" href="/vaccine/<%= user.vaccine.name %>">
                   <div class="table-data">
                     <%= user.country%>
                   </div>
@@ -46,8 +46,6 @@
         </div>
       </div>
       </div>
-
-
     </main>
 
 

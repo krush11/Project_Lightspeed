@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>Project Lightspeed</title>
+    <link rel="icon" href="/imgs/logo.jpg">
+    <link rel="stylesheet" href="/css/_header.scss" type="text/css">
+    <link rel="stylesheet" href="/css/_footer.scss" type="text/css">
+    <link rel="stylesheet" href="/css/transaction.scss" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+    <%- include('_header'); %>
+        <main>
+            <aside id="aside_1">
+                <img id="country_flag" src="/imgs/logo.jpg">
+                <div>Country Name</div>
+                <br>
+                <div>Vaccine Name</div>
+            </aside>
+            <aside id="aside_2">
+                <form action="/vaccine/send_transaction_req" method="POST">
+                    <h1>Vaccine Order</h1>
+                    <div>Requesting from: &numsp;&numsp;&numsp;${req_username}</div>
+                    <div>Requestee: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;${req_username}</div>
+                    <div>Vaccines Required: &numsp;&numsp;<input type="number" placeholder="Vaccine amount"></div>
+                    <div>Price/dose: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;${req_username}</div>
+                </form>
+            </aside>
+        </main>
+
+        <script>
+            document.getElementById("p1").innerHTML = "New text!";
+        </script>
+</body>
+
+</html>
