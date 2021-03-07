@@ -15,9 +15,29 @@ module.exports.transaction_req = function (req, res) {
                 });
             }
         });
-
     }
     else {
         return res.redirect('/login');
     }
+};
+
+module.exports.create_tracsaction = function (req, res) {
+    Company.findOne({ username: req.body.req_from }, function (err, user) {
+        if (user.vaccine.extra < req.body.req_vac) {
+            return res.redirect('/vaccine');
+        }
+        else {
+            var data = {
+                req_from: req.body.req_from,
+                req_to: req.body.req_to,
+                amt_req: req.body.req_vac,
+                transaction_status: "Awaiting confirmation",
+                vaccine: user.vaccine.name,
+                transaction_value: user.vaccine.price * req.body.req_vac
+            }
+            Transaction.create(data);
+            return res.redirect('/vaccine');
+        }
+    })
+    console.log(req.body);
 };

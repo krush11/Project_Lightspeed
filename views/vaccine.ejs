@@ -20,14 +20,18 @@
         <div class="table">
           <div class="table-header">
             <div class="header__item"><a id="country" class="filter__link" href="#">Country</a></div>
-            <div class="header__item"><a id="name" class="filter__link filter__link--number" href="#">Vaccine Name</a></div>
-            <div class="header__item"><a id="type" class="filter__link filter__link--number" href="#">Vaccine Type</a></div>
-            <div class="header__item"><a id="excess" class="filter__link filter__link--number" href="#">Excess Vaccines</a></div>
-            <div class="header__item"><a id="price" class="filter__link filter__link--number" href="#">Vaccine Price</a></div>
+            <div class="header__item"><a id="name" class="filter__link filter__link--number" href="#">Vaccine Name</a>
+            </div>
+            <div class="header__item"><a id="type" class="filter__link filter__link--number" href="#">Vaccine Type</a>
+            </div>
+            <div class="header__item"><a id="excess" class="filter__link filter__link--number" href="#">Excess
+                Vaccines</a></div>
+            <div class="header__item"><a id="price" class="filter__link filter__link--number" href="#">Vaccine Price</a>
+            </div>
           </div>
           <div class="table-content">
             <% users.forEach(function(user){ %>
-              <% if(user.vaccine.extra > 0){ %>
+              <% if(user.vaccine.extra> 0){ %>
                 <a class="table-row vaccine_hover" href="/vaccine/<%= user.vaccine.name %>">
                   <div class="table-data">
                     <%= user.country%>
@@ -38,16 +42,122 @@
                   <div class="table-data">
                     <%= user.vaccine.vaccine_type%>
                   </div>
-                  <div class="table-data"><%= user.vaccine.extra %></div>
-                  <div class="table-data"><%= user.vaccine.price %></div>
+                  <div class="table-data">
+                    <%= user.vaccine.extra %>
+                  </div>
+                  <div class="table-data">
+                    <%= user.vaccine.price %>
+                  </div>
                 </a>
                 <%}})%>
           </div>
         </div>
       </div>
       </div>
-    </main>
+      <br><br><br><br>
+      <div class="container">
+        <% if(auth) {%>
+          <div class="table">
+            <h3>Pending Transaction Requests</h3>
+            <div class="table-header" style="height: 6vh;">
+              <div class="header__item"><a id="country" class="filter__link" href="#">Vaccine</a></div>
+              <div class="header__item"><a id="country" class="filter__link" href="#">Request From</a></div>
+              <div class="header__item"><a id="name" class="filter__link filter__link--number" href="#">Request To</a>
+              </div>
+              <div class="header__item"><a id="type" class="filter__link filter__link--number" href="#">Amount of
+                  vaccines
+                  Requested</a>
+              </div>
+              <div class="header__item"><a id="excess" class="filter__link filter__link--number" href="#">Transaction
+                  Amount</a></div>
+              <div class="header__item"><a id="price" class="filter__link filter__link--number" href="#">Transaction
+                  Action</a>
+              </div>
+            </div>
+            <div class="table-content">
+              <% allTransactions.forEach(function(transacs){ %>
+                <% if(transacs.req_from==user.username || transacs.req_to==user.username) {%>
+                  <div class="table-row vaccine_hover">
+                    <div class="table-data">
+                      <%= transacs.vaccine%>
+                    </div>
+                    <div class="table-data">
+                      <%= transacs.req_to%>
+                    </div>
+                    <div class="table-data">
+                      <%= transacs.req_from %>
+                    </div>
+                    <div class="table-data">
+                      <%= transacs.amt_req%>
+                    </div>
+                    <div class="table-data">
+                      <%= transacs.transaction_value %>
+                    </div>
+                    <div class="table-data">
+                      <% if(user.username==transacs.req_from) {%>
+                        <div>
+                          <a style="margin-right: 1vw;" href="/vaccine/">&#9989;</a>
+                          <a href="">&#10060;</a>
+                        </div>
+                        <%} else if(user.username==transacs.req_to) {%>
+                          <%= transacs.transaction_status %>
+                            <% } %>
+                    </div>
+                  </div>
+                  <%}})%>
+            </div>
+          </div>
+          <% } %>
 
+            <br><br><br><br>
+            <div class="container">
+              <% if(auth) {%>
+                <div class="table">
+                  <h3>Pending Transaction Requests</h3>
+                  <div class="table-header" style="height: 6vh;">
+                    <div class="header__item"><a id="country" class="filter__link" href="#">Vaccine</a></div>
+                    <div class="header__item"><a id="country" class="filter__link" href="#">Request From</a></div>
+                    <div class="header__item"><a id="name" class="filter__link filter__link--number" href="#">Request
+                        To</a></div>
+                    <div class="header__item"><a id="type" class="filter__link filter__link--number" href="#">Amount of
+                        vaccines Requested</a>
+                    </div>
+                    <div class="header__item"><a id="excess" class="filter__link filter__link--number"
+                        href="#">Transaction Amount</a></div>
+                    <div class="header__item"><a id="price" class="filter__link filter__link--number"
+                        href="#">Transaction Action</a>
+                    </div>
+                  </div>
+                  <div class="table-content">
+                    <% allTransactions.forEach(function(transacs){ %>
+                      <% if(((transacs.transaction_status=='accepted' ) || (transacs.transaction_status=='declined' ))&&
+                        (transacs.req_from==user.username || transacs.req_to==user.username)) {%>
+                        <div class="table-row vaccine_hover">
+                          <div class="table-data">
+                            <%= transacs.vaccine%>
+                          </div>
+                          <div class="table-data">
+                            <%= transacs.req_to%>
+                          </div>
+                          <div class="table-data">
+                            <%= transacs.req_from %>
+                          </div>
+                          <div class="table-data">
+                            <%= transacs.amt_req%>
+                          </div>
+                          <div class="table-data">
+                            <%= transacs.transaction_value %>
+                          </div>
+                          <div class="table-data">
+                            <%= transacs.transaction_status %>
+                          </div>
+                        </div>
+                        <%}})%>
+                  </div>
+                </div>
+                <% } %>
+
+    </main>
 
     <script>
       var properties = [

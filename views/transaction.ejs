@@ -21,13 +21,14 @@
                 <div><%= req_user.vaccine.name %></div>
             </aside>
             <aside id="aside_2">
-                <form action="/vaccine/send_transaction_req/<%= user._id %>" method="POST">
+                <form action="/vaccine/transaction_req" method="POST">
                     <h1>Vaccine Order</h1>
-                    <div>Requesting from: &numsp;&numsp;&numsp;<%= req_user.username%></div>
-                    <div>Requestee: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;<%= user.username %></div>
+                    <div>Request To: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;<input type="text" placeholder="Requestee" name="req_from" value="<%= req_user.username %>" required></div>
+                    <div>Request From: &numsp;&numsp;&numsp;&numsp;&numsp;<input type="text" placeholder="Requesting from" name="req_to" value="<%= user.username%>" required></div>
+                    <div>Vaccines available: &numsp;&numsp;<%= req_user.vaccine.extra %></div>
                     <div>Price/dose: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;<%= req_user.vaccine.price %></div>
-                    <div>Vaccines Required: &numsp;&numsp;<input type="number" placeholder="Vaccine amount" required></div>
-                    <button class="button" style="vertical-align:middle"><span>Request Vaccines </span></button>
+                    <div>Vaccines Required: &numsp;&numsp;<input type="number" placeholder="Vaccine amount" name="req_vac" required></div>
+                    <input type="submit" name="" class="button" value="Request vaccines">
                 </form>
             </aside>
         </main>

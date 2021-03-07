@@ -28,9 +28,9 @@ module.exports.create_user = async function (req, res) {
             }
         }
     });
-    // req.session.save(() => {
-    //     return res.redirect('/profile');
-    // })
+    req.session.save(() => {
+        return res.redirect('/profile');
+    })
 }
 
 module.exports.update_password = async function (req, res) {
