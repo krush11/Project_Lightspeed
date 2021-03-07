@@ -11,7 +11,7 @@ router.post('/create_session',
         // failureFlash: 'Invalid username or password.'
     }), function (req, res) {
         req.session.save(() => {
-            res.redirect('/profile');
+            res.redirect('/');
         })
     });
 
