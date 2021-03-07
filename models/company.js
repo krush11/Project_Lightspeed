@@ -14,10 +14,15 @@ const companySchema = new mongoose.Schema({
     vaccine: {
         name: String,
         price: Number,
-        availibility: Number,
+        availibility: {
+            type: Number,
+            default: 0
+        },
         extra: Number,
-        needed: Number,
-        vaccine_type: String
+        needed: {
+            type: Number,
+            default: 0
+        },        vaccine_type: String
     }
 }, {
     timestamps: true
