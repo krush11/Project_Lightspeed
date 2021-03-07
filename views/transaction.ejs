@@ -15,25 +15,22 @@
     <%- include('_header'); %>
         <main>
             <aside id="aside_1">
-                <img id="country_flag" src="/imgs/logo.jpg">
-                <div>Country Name</div>
+                <img id="country_flag" src="/imgs/<%= req_user.country %>.jpg">
+                <div><%= req_user.country %></div>
                 <br>
-                <div>Vaccine Name</div>
+                <div><%= req_user.vaccine.name %></div>
             </aside>
             <aside id="aside_2">
-                <form action="/vaccine/send_transaction_req" method="POST">
+                <form action="/vaccine/send_transaction_req/<%= user._id %>" method="POST">
                     <h1>Vaccine Order</h1>
-                    <div>Requesting from: &numsp;&numsp;&numsp;${req_username}</div>
-                    <div>Requestee: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;${req_username}</div>
-                    <div>Vaccines Required: &numsp;&numsp;<input type="number" placeholder="Vaccine amount"></div>
-                    <div>Price/dose: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;${req_username}</div>
+                    <div>Requesting from: &numsp;&numsp;&numsp;<%= req_user.username%></div>
+                    <div>Requestee: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;<%= user.username %></div>
+                    <div>Price/dose: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;<%= req_user.vaccine.price %></div>
+                    <div>Vaccines Required: &numsp;&numsp;<input type="number" placeholder="Vaccine amount" required></div>
+                    <button class="button" style="vertical-align:middle"><span>Request Vaccines </span></button>
                 </form>
             </aside>
         </main>
-
-        <script>
-            document.getElementById("p1").innerHTML = "New text!";
-        </script>
 </body>
 
 </html>
