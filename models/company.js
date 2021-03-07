@@ -22,7 +22,8 @@ const companySchema = new mongoose.Schema({
         needed: {
             type: Number,
             default: 0
-        },        vaccine_type: String
+        },
+        vaccine_type: String
     }
 }, {
     timestamps: true
