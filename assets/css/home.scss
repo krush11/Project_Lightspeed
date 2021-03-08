@@ -28,7 +28,6 @@ main:before {
     background-image: url("/imgs/covid_19.jpg");
     background-repeat: no-repeat;
     background-position: 50% 0;
-    background-color: lightcyan;
     background-size: 100vw 100vh;
 }
 
@@ -41,7 +40,7 @@ main:before {
 
 #intro1 h1{
     font-size: 4rem;
-    color: rgba(132, 0, 255, 0.582);
+    color: rgba(0, 0, 0, 1.0);
 }
 
 #intro1,
