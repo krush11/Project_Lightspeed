@@ -41,7 +41,7 @@ Go to `localhost:8000` or `127.0.0.1:8000` to see the website live
 
 
    
-   <img src="crowd.png">
+   <img src="covid.jpeg">
      
     Since Covid-19 has taken the world by storm, it is important to obey the social distancing safety norms put forward for our safety.
    Stay Safe and stay protected.
