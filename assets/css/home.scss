@@ -5,9 +5,18 @@ body {
 
 main {
     padding-top: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-main:before {    content: " ";
+main:before {
+    content: " ";
     position: fixed;
     top: 5%;
     width: 100vw;
@@ -19,4 +28,134 @@ main:before {    content: " ";
     background-position: 50% 0;
     background-color: lightcyan;
     background-size: 100vw 100vh;
+}
+
+#intro {
+    width: 70vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#intro1,
+#intro2 {
+    width: 40vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#intro2 {
+    flex-direction: row;
+    align-items: center;
+}
+
+.typing {
+    font-family: "Inconsolata", Consolas, monospace;
+    font-size: 3em;
+    font-weight: 100;
+}
+
+.typing span {
+    font-family: "Inconsolata", Consolas, monospace;
+    font-size: inherit;
+    font-weight: 900;
+    color: rgb(255, 2, 2);
+}
+
+span {
+    font-size: 1.5rem;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #3dff57;
+    border: none;
+    color: #000000;
+    text-align: center;
+    height: 10vh;
+    font-size: 1.3rem;
+    padding: 20px;
+    width: max-content;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#user {
+    height: 40vh;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Play';
+}
+
+#user span{
+    margin: 5px 0px;
+}
+
+#sell {
+    margin-top: 2px;
+    color: blue;
+}
+
+.cards {
+    background-color: rgb(232, 250, 255);
+    height: 30vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cards div{
+    filter: grayscale(70%);
+}
+
+.cards div:hover {
+    filter: grayscale(0%);
+}
+
+.cards div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cards img {
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.cards h4 {
+    margin-top: -10px;
 }

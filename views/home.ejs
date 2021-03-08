@@ -6,12 +6,70 @@
     <link rel="stylesheet" href="/css/_header.scss" type="text/css">
     <link rel="stylesheet" href="/css/_footer.scss" type="text/css">
     <link rel="stylesheet" href="/css/home.scss" type="text/css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
+
 <body>
     <%- include('_header'); %>
-    <main>
-        
-    </main>
+        <main>
+            <section>
+                <div id="intro">
+                    <div id="intro1">
+                        <span class="typing">Project <span>Lightspeed</span></span>
+                        <br><br>
+                        <span>A fast, robust and lightweight tool facilitating <br><b>International COVID-19 Vaccine transfer</b> </span>
+                    </div>
+                    <div id="intro2">
+                        <% if(!auth) {%>
+                            <a href="/login"><input type="submit" name="" class="button" value="Join our community"></a>
+                            <a href="/vaccine"><input type="submit" name="" class="button"
+                                    value="Take me to the market"></a>
+                            <% }else if(locals.user){ %>
+                                <div id="user">
+                                    <span>Vaccines available: &numsp; <%= user.vaccine.availibility %></span>
+                                    <span>Vaccines needed: &numsp;&numsp;<%= user.vaccine.needed %></span>
+                                    <span>Vaccines turnover: &numsp;<%= required %></span><br>
+                                    <% if(required> 0) {%>
+                                        <span>
+                                            Awsome!! You are having more than enough vaccines.
+                                            <br><a id="sell" href="/vaccine">Sell extra vaccines</a>
+                                        </span>
+                                        <% } else {%>
+                                            <span>
+                                                Uh Oh!! You don't have enough vaccines
+                                                <br><a id="sell" href="/vaccine">Buy extra vaccines</a>
+                                            </span>
+                                            <%}%>
+                                </div>
+                                <%}%>
+                    </div>
+                </div>
+
+                <div class="cards">
+                    <div>
+                        <img src="/imgs/database.png" alt="">
+                        <h2>Database Management</h2>
+                        <h4 style="color: blue;">State of the art Database Management System</h4>
+                    </div>
+                    <div>
+                        <img src="/imgs/shield.png" alt="">
+                        <h2>Secure Framework</h2>
+                        <h4 style="color: green;">Highly secure encrypted framework</h4>
+                    </div>
+                    <div>
+                        <img src="/imgs/feather.png" alt="">
+                        <h2>Lightweight Deployment</h2>
+                        <h4 style="color: rgb(207, 187, 0);">Loads even at the weakest connectivities</h4>
+                    </div>
+                    <div>
+                        <img src="/imgs/layout.png" alt="">
+                        <h2>Easy UI/UX</h2>
+                        <h4 style="color: rgb(248, 147, 164);">Easy to follow User Interface</h4>
+                    </div>
+                </div>
+            </section>
+        </main>
 </body>
+
 </html>
