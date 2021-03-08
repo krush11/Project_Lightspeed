@@ -16,9 +16,12 @@
             <section>
                 <div id="intro">
                     <div id="intro1">
-                        <span class="typing">Project <span>Lightspeed</span></span>
-                        <br><br>
-                        <span>A fast, robust and lightweight tool facilitating <br><b>International COVID-19 Vaccine transfer</b> </span>
+                    <h1>PROJECT LIGHTSPEED</h1>
+                        <p id="tagline">
+                            Get vaccinated for all of us! <br>
+                            We are stronger and safer togheter👨‍👩‍👦‍👦🧑‍🤝‍🧑🌍👭🏼👨‍👩‍👦‍👦
+                        </p>
+                        </span>
                     </div>
                     <div id="intro2">
                         <% if(!auth) {%>
@@ -49,13 +52,13 @@
                 <div class="cards">
                     <div>
                         <img src="/imgs/database.png" alt="">
-                        <h2>Database Management</h2>
-                        <h4 style="color: blue;">State of the art Database Management System</h4>
+                        <h2>Warehouse Management</h2>
+                        <h4 style="color: blue;">State of the art Warehouse Management System</h4>
                     </div>
                     <div>
                         <img src="/imgs/shield.png" alt="">
-                        <h2>Secure Framework</h2>
-                        <h4 style="color: green;">Highly secure encrypted framework</h4>
+                        <h2>Secure Transactions</h2>
+                        <h4 style="color: green;">Highly secure encrypted transaction framework</h4>
                     </div>
                     <div>
                         <img src="/imgs/feather.png" alt="">
@@ -68,8 +71,87 @@
                         <h4 style="color: rgb(248, 147, 164);">Easy to follow User Interface</h4>
                     </div>
                 </div>
+                <br><br>
+                <div class="features">
+                    <h1>Types of Vaccines</h1>
+                    <br><br>
+                    <div id="feature_cards_section">
+                        <div class="feature_cards">
+                            <h1>Whole virus</h1>
+                            <span class="card_info">
+                                <span class="vaccines">Vaccines: Sinopharm, Sinovac</span><br>
+                                <span class="vaccine_info">
+                                    The whole virus vaccine uses a weakned or deactivated form
+                                    of thepathogen that causes COVID-19 to trigger protective immunity to it.
+                                    The vaccines use inactivated pathogens, therefore they cannot infect cells
+                                    andreplicate, but can trigger an immune response
+                                </span>
+                            </span>
+                        </div>
+                        <div class="feature_cards">
+                            <h1>Protein subunit</h1>
+                            <span class="card_info">
+                                <span class="vaccines">Vaccines: Pfizer-BioNTech, Moderna</span><br>
+                                <span class="vaccine_info">
+                                    The protein subunit vaccine contains purified “pieces” of a
+                                    pathogen rather than the whole pathogen to trigger an immune response. It is thought
+                                    that by restricting the immune system to the whole pathogen, the risk of side
+                                    effects is minimised.
+
+                                </span>
+                            </span>
+                        </div>
+                        <div class="feature_cards">
+                            <h1>Nucleic Vaccine </h1>
+                            <span class="card_info">
+                                <span class="vaccines">Vaccines: Oxford-AstraZeneca, Sputnik V</span><br>
+                                <span class="vaccine_info">
+                                    The COVID-19 RNA vaccine consists of mRNA molecules made in a lab that code for
+                                    parts of the SARS-CoV-2 virus – specifically the virus’ spike protein. Once injected
+                                    into the body, the mRNA instructs the cells to produce antigens.
+                                </span>
+                            </span>
+                        </div>
+                        <div class="feature_cards">
+                            <h1>Viral vector</h1>
+                            <span class="card_info">
+                                <span class="vaccines">Vaccines: Novavax</span><br>
+                                <span class="vaccine_info">
+                                    This type of vaccine introduces a safe, modified version of the
+                                    virus – known as “the vector” – to deliver genetic code for the antigen. In a
+                                    COVID-19 vaccine, the “vector” is the spike proteins found on the surface of the
+                                    coronavirus.
+
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div id="about_us2">
+                    <img id="about_img" src="/imgs/images.png" alt="">
+                    <div id="about_text">
+                        <h1>ABOUT US</h1>
+                        <ul>
+                            <li> COVID 19 turned the world as we knew it upside down. With vaccines being produced to
+                                restore the
+                                balance to the havoc created, the distribution and its roll-out is rather a difficult
+                                process.
+                            </li>
+                            <br><br>
+                            <li>
+                                This International Vaccine Distribution project deals with the transfer of the different
+                                vaccines amongst the differnet countries with heavy focus on human values and equitable
+                                distribution of available resources.
+                            </li>
+                        </ul>
+                    </div>
+                    <img id="about_img" src="/imgs/images.jpeg" alt="">
+                </div>
+                <br><br>
             </section>
         </main>
+        <%- include('_footer'); %>
 </body>
 
 </html>

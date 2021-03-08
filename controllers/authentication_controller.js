@@ -9,28 +9,32 @@ module.exports.login = function (req, res) {
 }
 
 module.exports.create_user = async function (req, res) {
-    // console.log(req.body);
-    // console.log(req.user);
-    await Company.findOne({ user: req.body.user }, function (err, user) {
+    try {
+        const user = await Company.findOne({ username: req.body.user }); // callback is not passed, it will return a Promise
         if (user) {
             return res.redirect('/login');
         }
-        else {
-            if (req.body.password == req.body.confirm_password) {
-                Company.create({
-                    "country": req.body.country,
-                    "username": req.body.user,
-                    "password": req.body.password
-                });
-            }
-            else {
-                console.log('Passwords didnt match');
-            }
+
+        if (req.body.password == req.body.confirm_password) {
+            await Company.create({ // wait until user is created
+                "country": req.body.country,
+                "username": req.body.user,
+                "password": req.body.password
+            });
+            // then redirect page
+            req.session.save(() => {
+                return res.redirect('/profile');
+            });
+        } else {
+            console.log('Passwords didn\'t match');
+            // what happen when password didn't match
+            return res.redirect('/login');
         }
-    });
-    req.session.save(() => {
-        return res.redirect('/profile');
-    })
+    } catch (error) {
+        // something went wrong
+        console.log(error);
+        return res.redirect('/login');
+    }
 }
 
 module.exports.update_password = async function (req, res) {

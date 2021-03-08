@@ -26,7 +26,8 @@
                     <div>Request To: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;<input type="text" placeholder="Requestee" name="req_from" value="<%= req_user.username %>" required></div>
                     <div>Request From: &numsp;&numsp;&numsp;&numsp;&numsp;<input type="text" placeholder="Requesting from" name="req_to" value="<%= user.username%>" required></div>
                     <div>Vaccines available: &numsp;&numsp;<%= req_user.vaccine.extra %></div>
-                    <div>Price/dose: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;<%= req_user.vaccine.price %></div>
+                    <div>Price/dose: &numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;&numsp;INR <%= req_user.vaccine.price %></div>
+                    <div>Shipping charges: &numsp;&numsp;&numsp;<input type="number" placeholder="Vaccine amount" name="shipping" value="20" required></div>
                     <div>Vaccines Required: &numsp;&numsp;<input type="number" placeholder="Vaccine amount" name="req_vac" required></div>
                     <input type="submit" name="" class="button" value="Request vaccines">
                 </form>

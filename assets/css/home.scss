@@ -1,6 +1,7 @@
 body {
     margin: 0;
     overflow-x: hidden;
+    font-family: 'Play';
 }
 
 main {
@@ -9,6 +10,7 @@ main {
     flex-direction: column;
     align-items: center;
 }
+
 section {
     display: flex;
     flex-direction: column;
@@ -37,13 +39,24 @@ main:before {
     justify-content: space-around;
 }
 
+#intro1 h1{
+    font-size: 4rem;
+    color: rgba(132, 0, 255, 0.582);
+}
+
 #intro1,
 #intro2 {
     width: 40vw;
-    height: 50vh;
+    height: 84vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#tagline {
+    font-size: 2.5em;
+    color: rgb(158, 48, 48);
+    font-weight: 800;
 }
 
 #intro2 {
@@ -138,7 +151,7 @@ span {
 }
 
 .cards div{
-    filter: grayscale(70%);
+    filter: grayscale(80%);
 }
 
 .cards div:hover {
@@ -158,4 +171,94 @@ span {
 
 .cards h4 {
     margin-top: -10px;
+}
+
+.features {
+    height: max-content;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    // padding: 2rem;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+#feature_cards_section {
+    height: max-content;
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.feature_cards {
+    width: 35vw;
+    height: 30vh;
+    background-color: rgba(251, 255, 0, 0.33);
+    border-radius: 10px;
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 20px 0.5px;
+    transition: all 0.5s;
+}
+
+.feature_cards:hover{
+    transform: translate(1%, 1%);
+    box-shadow: 2px 2px 8px 0.2px;
+}
+
+h1{
+    margin: 0px;
+}
+
+.card_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;    
+}
+
+.vaccine_info {
+    font-size: 1.2rem;
+}
+
+#about_img {
+    width: 30vh;
+    height: 30vh;
+}
+
+#about_us2 {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    background-color: lightcyan;
+    height: 40vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#about_text {
+    max-width: 40vw;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+li{
+    list-style: none;
 }

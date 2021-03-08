@@ -26,6 +26,7 @@ module.exports.create_tracsaction = function (req, res) {
         if (user.vaccine.extra < req.body.req_vac) {
             return res.redirect('/vaccine');
         }
+
         else {
             var data = {
                 req_from: req.body.req_from,
@@ -33,7 +34,7 @@ module.exports.create_tracsaction = function (req, res) {
                 amt_req: req.body.req_vac,
                 transaction_status: "Awaiting confirmation",
                 vaccine: user.vaccine.name,
-                transaction_value: user.vaccine.price * req.body.req_vac
+                transaction_value: (user.vaccine.price+req.body.shipping) * req.body.req_vac
             }
             Transaction.create(data);
             return res.redirect('/vaccine');
@@ -60,8 +61,8 @@ module.exports.accepted = async function (req, res) {
         var req_from = transac.req_from;
         var req_to = transac.req_to;
         Company.findOne({ username: req_from }, function (err, user) {
-            var available = user.vaccine.availibility + transac.amt_req;
-            var extra_vac = user.vaccine.extra + transac.amt_req;
+            var available = user.vaccine.availibility - transac.amt_req;
+            var extra_vac = user.vaccine.extra - transac.amt_req;
             console.log(extra_vac, user.vaccine.extra);
             console.log(user.vaccine.availibility);
             Company.findOneAndUpdate({ username: req_from }, {
@@ -77,8 +78,8 @@ module.exports.accepted = async function (req, res) {
             });
         });
         Company.findOne({ username: req_to }, function (err, user) {
-            var available = user.vaccine.availibility - transac.amt_req;
-            var extra_vac = user.vaccine.extra - transac.amt_req;
+            var available = user.vaccine.availibility + transac.amt_req;
+            var extra_vac = user.vaccine.extra + transac.amt_req;
             Company.findOneAndUpdate({ username: req_to }, {
                 'vaccine.name': user.vaccine.name,
                 'vaccine.price': user.vaccine.price,
