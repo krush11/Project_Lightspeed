@@ -1,4 +1,3 @@
-# Project Lightspeed
 
 <h1 style="text-align:center;color:#008EDC">Project Lightspeed  (InnovateNSUT Hackathon)</h1>
 
