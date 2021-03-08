@@ -7,7 +7,7 @@
 ## **Build and go live**
 ```bash
 git clone https://github.com/krush11/Project_Lightspeed
-cd site
+cd Project_Lightspeed
 npm install
 npm start
 ```
