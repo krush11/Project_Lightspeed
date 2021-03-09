@@ -2,11 +2,12 @@
 <h1 align="center" style="color:#008EDC">Project Lightspeed</h1>
 
 <h2 align="center" style="color:#F2CA25">TeamRiot</h1>
+![Project Lightspeed logo](https://github.com/krush11/Project_Lightspeed/blob/master/assets/imgs/logo.jpg)
 
 <br/>
 Here is our [youtube link](https://youtu.be/EZsZ8OVHTHg) to demo of our website.
 <br/>The Lightspeed project was created for Innovate NSUT hackathon. 
-With vaccines being produced to restore the balance to the havoc created, the distribution and its roll-out is rather a difficult process.
+With vaccines being produced to restore the balance to the havoc created, the distribution and its roll-out is rather a difficult process.<br>
 
 This International Vaccine Distribution project deals with the transfer of the different vaccines amongst the differnet countries with heavy focus on human values and equitable distribution of available resources.
 <br/>
